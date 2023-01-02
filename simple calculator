@@ -1,0 +1,28 @@
+from math import *
+
+a = 0
+b = 0
+c = 0
+d = 0
+
+choose = input("what do you want to do?\nadd - +\nsubstract - -\ndivide - /\nmultiply - *\npower to - ^\nsquare root - ?\n")
+
+if choose != "?":
+    a = int(input("give first number\n"))
+    b = int(input("give second number\n"))
+
+if choose == "+":
+    c = a + b
+if choose == "-":
+    c = a - b
+if choose == "/":
+    c = a / b
+if choose == "*":
+    c = a * b
+if choose == "^":
+    c = pow(a, b)
+if choose == "?":
+    d = int(input("write number which you want to root square\n"))
+    c = sqrt(d)
+
+print("your number is " + str(c))
