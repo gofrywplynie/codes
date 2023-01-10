@@ -1,0 +1,56 @@
+import random
+
+rp1 = random.randint(2, 10)
+rp2 = random.randint(2, 10)
+rk1 = random.randint(2, 10)
+rk2 = random.randint(2, 10)
+
+kp = rp1 + rp2
+kk = rk1 + rk2
+
+while kk > 21:
+    rk1 = random.randint(2, 10)
+    rk2 = random.randint(2, 10)
+
+    kk = rk1 + rk2
+
+while kp > 21:
+    rp1 = random.randint(2, 10)
+    rp2 = random.randint(2, 10)
+
+    kp = rp1 + rp2
+
+
+print(f"croupier cards: {rk1} ?")
+print(f"your cards: {rp1} {rp2}")
+
+
+while (kp < 21):
+    choice = int(input("what do you want to do?\nhit - 1\nstand - 2\n"))
+
+    if choice == 1:
+        rp3 = random.randint(2, 10)
+        kp = kp + rp3
+        print(f"new card {rp3} now you have {kp} cards")
+    if choice == 2:
+        break
+
+
+
+if(kp == 21):
+    print("you won")
+if kp > 21:
+    print("you lost")
+if kp < 21:
+    while(kk < kp):
+        kk3 = random.randint(2, 10)
+        kk = kk + kk3
+    if (kk == 21):
+        print("croupier won")
+        print(f"your cards: {kp}   croupier cards: {kk}")
+    if kk > 21:
+        print("croupier lost")
+        print(f"your cards: {kp}   croupier cards: {kk}")
+    if kk > kp:
+        print("croupier won")
+        print(f"your cards: {kp}   croupier cards: {kk}")
