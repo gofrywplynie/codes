@@ -1,0 +1,38 @@
+import random
+while True:
+    choice = ["rock", "paper", "scissors"]
+    a = random.randint(0,2)
+
+    pch = None
+
+    bch = random.choice(choice)
+    while pch not in choice:
+        pch = input("what do you want to choose?").lower()
+
+        print(f"bot: {bch}")
+        print(f"player: {pch}")
+        if pch == bch:
+            print("draw")
+
+    match bch:
+        case "rock":
+           if pch == "scissors":
+               print("you lost")
+           if pch == "paper":
+               print("you won")
+        case "paper":
+           if pch == "rock":
+               print("you lost")
+           if pch == "scissors":
+               print("you won")
+        case "scissors":
+           if pch == "rock":
+               print("you won")
+           if pch == "paper":
+               print("you lost")
+
+    ch = input("do you want to play again? yes/no\n").lower()
+    if ch == "yes":
+        pass
+    else:
+        quit()
