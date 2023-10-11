@@ -1,0 +1,31 @@
+import os
+
+ids = {}
+x = []
+compressed = []
+FilePath = input("enter a file path")
+compressedName = input("enter a file name you want after compression")
+FileOpen = open(FilePath, "r")
+FileRead = FileOpen.read().split()
+id_directory = f"{compressedName}/ids"
+
+
+
+for i in FileRead:
+    if i not in x:
+        x.append(i)
+
+for i in FileRead:
+    compressed.append(f"{x.index(i)}")
+
+for i in range (len(x)):
+    if FileRead[i] not in ids:
+        ids[f"{compressed[i + 1]}"] = x[i]
+
+os.mkdir(compressedName)
+
+with open(id_directory, 'w') as f:
+    f.write(f"{ids}")
+
+with open(f"{compressedName}/{compressedName}", "w") as f:
+    f.write(f"{' '.join(compressed)}")
